@@ -1,15 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ICloudService } from '../../third-party/aws/cloud.service.requirements';
-import { IErrorHandlingService } from '../error-handling/error-handling.service.requirements';
 import { IFileUploadService } from './file-upload.service.requirements';
 
 @Injectable()
 export class FileUploadService implements IFileUploadService {
   constructor(
     @Inject('ICloudService')
-    private readonly awsS3Service: ICloudService,
-    @Inject('IErrorHandlingService')
-    private readonly errorHandlingService: IErrorHandlingService
+    private readonly awsS3Service: ICloudService
   ) {}
 
   public async uploadFile(
@@ -22,7 +19,7 @@ export class FileUploadService implements IFileUploadService {
         fileName
       );
     } catch (error) {
-      this.errorHandlingService.handleError(error);
+      throw new Error(`Error uploading file: ${error.message}`);
     }
   }
 }

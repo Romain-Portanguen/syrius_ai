@@ -6,7 +6,6 @@ import { ChunkManagerService } from '../services/chunks/chunk-manager.service';
 import { DocumentProcessingService } from '../services/document/document-processing.service';
 import { EmbeddingRepository } from '../repositories/embedding/embedding-repository.service';
 import { EmbeddingServiceLogger } from '../services/embeddings/embedding-service-logger.service';
-import { ErrorHandlingService } from '../services/error-handling/error-handling.service';
 import { FileController } from '../controllers/file.controller';
 import { FileExtractorService } from '../services/file-extractor/file-extractor.service';
 import { FileUploadService } from '../services/file-upload/file-upload.service';
@@ -33,7 +32,6 @@ import { ThirdPartyAPIKeyService } from '../config/third-party-api-key.config';
     { provide: 'IEmbeddingRepository', useClass: EmbeddingRepository },
     { provide: 'IEmbeddingService', useClass: OpenAIEmbeddingService },
     { provide: 'IEmbeddingServiceLogger', useClass: EmbeddingServiceLogger },
-    { provide: 'IErrorHandlingService', useClass: ErrorHandlingService },
     { provide: 'IFileExtractorService', useClass: FileExtractorService },
     { provide: 'IFileUploadService', useClass: FileUploadService },
     { provide: 'ILLMServiceFactory', useClass: LLMServiceFactory },
