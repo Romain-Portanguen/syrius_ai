@@ -1,4 +1,4 @@
-export interface ICloudService {
+export interface IFileUploadService {
   uploadFileToBucketStorage(
     fileBuffer: Buffer,
     fileName: string,

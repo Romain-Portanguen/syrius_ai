@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ICloudService } from '../../third-party/aws/cloud.service.requirements';
-import { IFileUploadService } from './file-upload.service.requirements';
+import { IFileUploadService } from '../../third-party/aws/cloud.service.requirements';
+import { IRAGFileUploadService } from './file-upload.service.requirements';
 
 @Injectable()
-export class FileUploadService implements IFileUploadService {
+export class FileUploadService implements IRAGFileUploadService {
   constructor(
     @Inject('ICloudService')
-    private readonly awsS3Service: ICloudService
+    private readonly awsS3Service: IFileUploadService
   ) {}
 
   public async uploadFile(

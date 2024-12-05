@@ -1,10 +1,10 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-import { ICloudService } from './cloud.service.requirements';
+import { IFileUploadService } from './cloud.service.requirements';
 import { IThirdPartyCloudServiceConfig } from '../../config/third-party-cloud-service.config.requirements';
 
 @Injectable()
-export class AWSS3Service implements ICloudService {
+export class AWSS3Service implements IFileUploadService {
   private readonly s3Client: S3Client;
   private readonly bucketName: string;
 
