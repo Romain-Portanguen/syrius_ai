@@ -12,7 +12,7 @@ import { File } from '../dtos/file.dto';
 import { IChunkManagerService } from '../services/chunks/chunk-manager.service.requirements';
 import { IEmbeddingRepository } from '../repositories/embedding/embedding-repository.service.requirements';
 import { IFileExtractorService } from '../services/file-extractor/file-extractor.service.requirements';
-import { IFileUploadService } from '../services/file-upload/file-upload.service.requirements';
+import { IRAGFileUploadService } from '../services/file-upload/file-upload.service.requirements';
 import { ILLMServiceFactory } from '../factories/llm-service-factory.requirements';
 
 @Controller('rag')
@@ -25,7 +25,7 @@ export class FileController {
     @Inject('IFileExtractorService')
     private readonly fileExtractorService: IFileExtractorService,
     @Inject('IFileUploadService')
-    private readonly fileUploadService: IFileUploadService,
+    private readonly fileUploadService: IRAGFileUploadService,
     @Inject('ILLMServiceFactory')
     private readonly llmServiceFactory: ILLMServiceFactory
   ) {}

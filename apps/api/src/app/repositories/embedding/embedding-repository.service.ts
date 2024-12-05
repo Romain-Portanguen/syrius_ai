@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IEmbeddingService } from '../../services/embeddings/embeddings.service.requirements';
 import { IEmbeddingServiceLogger } from '../../services/embeddings/embedding-service-logger.requirements';
-import { IVectorStorageService } from '../../services/pinecone/vector-storage.service.requirements';
+import { IVectorStorageService } from '../../third-party/pinecone/vector-storage.service.requirements';
 import { IEmbeddingRepository } from './embedding-repository.service.requirements';
 
 @Injectable()
